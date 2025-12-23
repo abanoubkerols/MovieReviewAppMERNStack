@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# MovieReviewApp — Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the React frontend for the MovieReviewAppMERNStack project. It was bootstrapped with Create React App and uses Tailwind CSS for styling.
 
-## Available Scripts
+**Quick Start**
 
-In the project directory, you can run:
+1. Install dependencies and start the dev server:
 
-### `npm start`
+```bash
+cd frontend
+npm install
+npm start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open http://localhost:3000 in your browser. The app hot-reloads when you change source files.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Environment / API configuration**
 
-### `npm test`
+The frontend expects the backend API to be available at `http://localhost:8000/api` by default. The API client is defined in `src/api/client.js`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To change the API base URL without editing code, modify `src/api/client.js` or update it to use an environment variable like `REACT_APP_API_BASE_URL`.
 
-### `npm run build`
+Example using `.env` (optional): create `frontend/.env` with:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+REACT_APP_API_BASE_URL=http://localhost:8000/api
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Then update `src/api/client.js` to read `process.env.REACT_APP_API_BASE_URL` (I can do this change if you want).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Available Scripts**
 
-### `npm run eject`
+- `npm start` — start development server
+- `npm run build` — build production bundle into `build/`
+- `npm test` — run tests
+- `npm run eject` — eject CRA config (one-way)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Folder structure (important files)**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- `src/` — application source code
+	- `src/index.js` — app entry
+	- `src/App.js` — root app component
+	- `src/api/` — API clients (`client.js`, `auth.js`, `movie.js`, etc.)
+	- `src/components/` — React UI components (user, admin, forms, models)
+	- `src/context/` — React context providers (auth, movies, notifications)
+	- `src/utils/` — helper utilities and validators
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Connecting to the backend**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The frontend makes requests to the backend API paths described in `backend/routes/` (for example `/api/movie`, `/api/user`). Ensure the backend server is running (see `backend/README.md`) and that `REACT_APP_API_BASE_URL` (or `src/api/client.js`) is set to the correct URL.
 
-## Learn More
+**Build & Deploy**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Create a production build:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+cd frontend
+npm run build
+```
 
-### Code Splitting
+2. Serve the `build/` directory using a static server or integrate with your backend server (for example, serve static files from Express in production).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Development tips**
 
-### Analyzing the Bundle Size
+- Use the browser devtools and network tab to inspect API requests and responses.
+- If CORS errors appear, ensure the backend `cors()` middleware is enabled (it is in `backend/app.js`).
+- Restart the dev server after changing environment variables.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**Next steps I can do for you**
 
-### Making a Progressive Web App
+- Add `frontend/.env.example` and update `src/api/client.js` to use `REACT_APP_API_BASE_URL`.
+- Create a small README section listing key UI routes and components.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+***
+If you want, I can update `src/api/client.js` now to use `process.env.REACT_APP_API_BASE_URL` and add `.env.example`.
+***
