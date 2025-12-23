@@ -66,11 +66,3 @@ npm run build
 - If CORS errors appear, ensure the backend `cors()` middleware is enabled (it is in `backend/app.js`).
 - Restart the dev server after changing environment variables.
 
-**Next steps I can do for you**
-
-- Add `frontend/.env.example` and update `src/api/client.js` to use `REACT_APP_API_BASE_URL`.
-- Create a small README section listing key UI routes and components.
-
-***
-If you want, I can update `src/api/client.js` now to use `process.env.REACT_APP_API_BASE_URL` and add `.env.example`.
-***
