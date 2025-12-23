@@ -68,14 +68,3 @@ npm run build
 - Backend routes: [backend/routes](backend/routes)
 - Frontend entry: [frontend/src/index.js](frontend/src/index.js)
 
-**Contributing**
-- Open issues or pull requests with proposals. Keep changes focused and test locally.
-
-**License**
-- See repository LICENSE or contact the author (no license file present by default).
-
----
-If you'd like, I can also:
-- add a `.env.example` in `backend/` listing required variables,
-- add quick-start scripts for Windows PowerShell,
-- or run the app locally and verify both backend and frontend start successfully.
